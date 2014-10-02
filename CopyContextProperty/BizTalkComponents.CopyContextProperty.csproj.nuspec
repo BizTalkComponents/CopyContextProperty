@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BizTalkComponents.CopyContextProperty</id>
+    <version>1.0.0</version>
+    <authors>Robin Hultman</authors>
+    <owners>ibizsolutions</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Pipeline component to copy one context property to another</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>BizTalk</tags>
+  </metadata>
+</package>
