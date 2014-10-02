@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace BizTalkComponents.CopyContextProperty
+namespace BizTalkComponents.PipelineComponents.CopyContextProperty
 {
     public partial class CopyContextProperty
     {

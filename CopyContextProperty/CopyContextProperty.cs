@@ -2,11 +2,11 @@
 using BizTalkComponents.Utils.PropertyBagHelpers;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
-using Guid = System.Runtime.InteropServices;
-namespace BizTalkComponents.CopyContextProperty
+
+namespace BizTalkComponents.PipelineComponents.CopyContextProperty
 {
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
-    [Guid.Guid("98EB6BA0-4FBC-44C5-8A53-A7D37C46A396")]
+    [System.Runtime.InteropServices.Guid("98EB6BA0-4FBC-44C5-8A53-A7D37C46A396")]
     [ComponentCategory(CategoryTypes.CATID_Any)]
     public partial class CopyContextProperty : IComponent, IBaseComponent,
                                         IPersistPropertyBag, IComponentUI
