@@ -35,6 +35,9 @@
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>BizTalkComponents.PipelineComponents.CopyContextProperty.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BizTalkComponents.Utils">
       <HintPath>..\packages\BizTalkComponents.Utils.1.0.0\lib\net40\BizTalkComponents.Utils.dll</HintPath>
@@ -58,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BizTalkComponents.CopyContextProperty.csproj.nuspec" />
+    <None Include="BizTalkComponents.PipelineComponents.CopyContextProperty.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
