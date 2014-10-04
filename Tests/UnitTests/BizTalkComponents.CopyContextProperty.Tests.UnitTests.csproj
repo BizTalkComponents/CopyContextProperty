@@ -37,20 +37,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BizTalk.Bam.EventObservation, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\Microsoft.BizTalk.Bam.EventObservation.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.BizTalk.Pipeline, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\Microsoft.BizTalk.Pipeline.dll</HintPath>
-    </Reference>
-    <Reference Include="PipelineObjects, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\PipelineObjects.dll</HintPath>
+      <HintPath>..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.BizTalk.Pipeline\3.0.1.0__31bf3856ad364e35\Microsoft.BizTalk.Pipeline.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="Winterdom.BizTalk.PipelineTesting">
+    <Reference Include="Winterdom.BizTalk.PipelineTesting, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8671935c07812470, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Winterdom.BizTalk.PipelineTesting.1.2.1.0\lib\net45\Winterdom.BizTalk.PipelineTesting.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -71,13 +64,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\CopyContextProperty\BizTalkComponents.PipelineComponents.CopyContextProperty.csproj">
       <Project>{c800a79a-e3ac-4581-bf3b-f9527fd46ee7}</Project>
       <Name>BizTalkComponents.PipelineComponents.CopyContextProperty</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
