@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkComponents.PipelineComponents.CopyContextProperty", "CopyContextProperty\BizTalkComponents.PipelineComponents.CopyContextProperty.csproj", "{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{EF0B4E01-506C-421D-8EB6-57EAF550138A}"
 	ProjectSection(SolutionItems) = preProject
 		Dependencies\Microsoft.BizTalk.Pipeline.dll = Dependencies\Microsoft.BizTalk.Pipeline.dll
@@ -17,20 +15,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6B19B1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkComponents.CopyContextProperty.Tests.UnitTests", "Tests\UnitTests\BizTalkComponents.CopyContextProperty.Tests.UnitTests.csproj", "{99471BAA-82BB-434F-B1DD-C592FCA0DAFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkComponents.PipelineComponents.CopyContextProperty", "Src\CopyContextProperty\BizTalkComponents.PipelineComponents.CopyContextProperty.csproj", "{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99471BAA-82BB-434F-B1DD-C592FCA0DAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99471BAA-82BB-434F-B1DD-C592FCA0DAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99471BAA-82BB-434F-B1DD-C592FCA0DAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99471BAA-82BB-434F-B1DD-C592FCA0DAFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

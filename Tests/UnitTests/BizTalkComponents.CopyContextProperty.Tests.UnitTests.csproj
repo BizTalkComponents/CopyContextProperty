@@ -64,13 +64,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CopyContextProperty\BizTalkComponents.PipelineComponents.CopyContextProperty.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Src\CopyContextProperty\BizTalkComponents.PipelineComponents.CopyContextProperty.csproj">
       <Project>{c800a79a-e3ac-4581-bf3b-f9527fd46ee7}</Project>
       <Name>BizTalkComponents.PipelineComponents.CopyContextProperty</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
