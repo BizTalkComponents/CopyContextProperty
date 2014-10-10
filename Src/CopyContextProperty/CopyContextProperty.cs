@@ -22,7 +22,7 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
             var sourceContextProperty = new ContextProperty(SourceProperty);
             var destinationContextProperty = new ContextProperty(DestinationProperty);
 
-            ContextPropertyHelper.CopyContextProperty(pInMsg, sourceContextProperty, destinationContextProperty);
+            pInMsg.Context.Copy(sourceContextProperty, destinationContextProperty);
 
             return pInMsg;
         }
