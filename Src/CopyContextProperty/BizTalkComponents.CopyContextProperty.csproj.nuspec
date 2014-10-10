@@ -6,6 +6,7 @@
     <authors>Robin Hultman</authors>
     <owners>ibizsolutions</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/ibizsolutions/BizTalkComponents.CopyContextProperty</projectUrl>
     <description>Pipeline component to copy one context property to another</description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright 2014</copyright>
