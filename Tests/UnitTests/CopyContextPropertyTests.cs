@@ -10,6 +10,7 @@ namespace BizTalkComponents.CopyContextProperty.Tests.UnitTests
         public void TestCopyProperty()
         {
             var pipeline = PipelineFactory.CreateEmptyReceivePipeline();
+            
             var component = new PipelineComponents.CopyContextProperty.CopyContextProperty
             {
                 SourceProperty = "http://tempuri.org#Source",
