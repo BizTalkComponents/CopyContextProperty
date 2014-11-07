@@ -62,7 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BizTalkComponents.CopyContextProperty.csproj.nuspec" />
+    <None Include="BizTalkComponents.PipelineComponents.CopyContextProperty.nuspec" />
     <None Include="BizTalkComponents.PipelineComponents.CopyContextProperty.snk" />
     <None Include="packages.config" />
   </ItemGroup>
