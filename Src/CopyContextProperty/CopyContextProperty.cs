@@ -1,7 +1,10 @@
-﻿using BizTalkComponents.Utils;
-using BizTalkComponents.Utils.ContextExtensions;
+﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using BizTalkComponents.Utils;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
+using IComponent = Microsoft.BizTalk.Component.Interop.IComponent;
 
 namespace BizTalkComponents.PipelineComponents.CopyContextProperty
 {
@@ -14,11 +17,29 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
         private const string SourcePropertyName = "SourceProperty";
         private const string DestinationPropertyName = "DestinationPropertyName";
 
+        [RequiredRuntime]
+        [DisplayName("Source Property Path")]
+        [Description("The property path of the property to copy from.")]
+        [RegularExpression(@"^.*#.*$",
+        ErrorMessage = "A property path should be formatted as namespace#property.")]
         public string SourceProperty { get; set; }
+        
+        [RequiredRuntime]
+        [DisplayName("Destination Property Path")]
+        [Description("The property path of the property to copy to.")]
+        [RegularExpression(@"^.*#.*$",
+        ErrorMessage = "A property path should be formatted as namespace#property.")]
         public string DestinationProperty { get; set; }
 
         public IBaseMessage Execute(IPipelineContext pContext, IBaseMessage pInMsg)
         {
+            string errorMessage;
+
+            if (!Validate(out errorMessage))
+            {
+                throw new ArgumentException(errorMessage);
+            }
+
             var sourceContextProperty = new ContextProperty(SourceProperty);
             var destinationContextProperty = new ContextProperty(DestinationProperty);
 
@@ -27,7 +48,7 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
             return pInMsg;
         }
 
-        
+
         public void Load(IPropertyBag propertyBag, int errorLog)
         {
             if (string.IsNullOrEmpty(SourceProperty))
@@ -46,6 +67,6 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
             PropertyBagHelper.WritePropertyBag(propertyBag, SourcePropertyName, SourceProperty);
             PropertyBagHelper.WritePropertyBag(propertyBag, DestinationPropertyName, DestinationProperty);
         }
-        
+
     }
 }
