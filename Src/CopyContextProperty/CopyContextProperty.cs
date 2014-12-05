@@ -23,7 +23,7 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
         [RegularExpression(@"^.*#.*$",
         ErrorMessage = "A property path should be formatted as namespace#property.")]
         public string SourceProperty { get; set; }
-        
+
         [RequiredRuntime]
         [DisplayName("Destination Property Path")]
         [Description("The property path of the property to copy to.")]
@@ -51,15 +51,8 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
 
         public void Load(IPropertyBag propertyBag, int errorLog)
         {
-            if (string.IsNullOrEmpty(SourceProperty))
-            {
-                SourceProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, SourcePropertyName), string.Empty);
-            }
-
-            if (string.IsNullOrEmpty(DestinationProperty))
-            {
-                DestinationProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, DestinationPropertyName), string.Empty);
-            }
+            SourceProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, SourcePropertyName), string.Empty);
+            DestinationProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, DestinationPropertyName), string.Empty);
         }
 
         public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
