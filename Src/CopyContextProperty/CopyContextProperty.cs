@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
 using BizTalkComponents.Utils;
 using Microsoft.BizTalk.Component.Interop;
 using Microsoft.BizTalk.Message.Interop;
@@ -22,6 +25,7 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
         [Description("The property path of the property to copy from.")]
         [RegularExpression(@"^.*#.*$",
         ErrorMessage = "A property path should be formatted as namespace#property.")]
+        [ContextPropertyAttribute(PropertyName = "SourceProperty")]
         public string SourceProperty { get; set; }
 
         [RequiredRuntime]
@@ -29,6 +33,7 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
         [Description("The property path of the property to copy to.")]
         [RegularExpression(@"^.*#.*$",
         ErrorMessage = "A property path should be formatted as namespace#property.")]
+        [ContextPropertyAttribute(PropertyName = "DestinationPropertyName")]
         public string DestinationProperty { get; set; }
 
         public IBaseMessage Execute(IPipelineContext pContext, IBaseMessage pInMsg)
@@ -51,6 +56,25 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
 
         public void Load(IPropertyBag propertyBag, int errorLog)
         {
+            List<PropertyInfo> result =
+    typeof(CopyContextProperty)
+    .GetProperties()
+    .Where(
+        p =>
+            p.GetCustomAttributes(typeof(ContextPropertyAttribute), true)
+            .Any()
+        )
+    .ToList();
+
+            foreach (var p in result)
+            {
+                
+                
+                var attr = p.GetCustomAttributes(typeof (ContextPropertyAttribute), true);
+                var val = attr.GetValue(0);
+
+                p.SetValue(PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, SourcePropertyName),string.Empty,);
+            }
             SourceProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, SourcePropertyName), string.Empty);
             DestinationProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, DestinationPropertyName), string.Empty);
         }
