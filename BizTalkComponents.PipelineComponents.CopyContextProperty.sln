@@ -12,6 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkComponents.CopyConte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkComponents.PipelineComponents.CopyContextProperty", "Src\CopyContextProperty\BizTalkComponents.PipelineComponents.CopyContextProperty.csproj", "{C800A79A-E3AC-4581-BF3B-F9527FD46EE7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{2E7079B0-2EF2-4345-BDD6-003CC2349B69}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Build.proj = Build\Build.proj
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
