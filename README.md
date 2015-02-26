@@ -1,5 +1,3 @@
-# BizTalkComponents.PipelineComponents.CopyContextProperty #
-## Usage ##
 Copies a value from a specified context property to another context property.
 
 This component is useful when you need to promote a property based on another property.
