@@ -19,6 +19,7 @@
 			FileName="BizTalkComponents.PipelineComponents.CopyContextProperty_%(Info.AssemblyInformationalVersion).msi"
 			DestinationPath="$(DestinationPath)"
 			ApplicationName="$(ApplicationName)"
+			SourceLocation="C:\%(Info.AssemblyInformationalVersion)"
 			Resources="@(Resource)" />
 	</Target>
 </Project>
