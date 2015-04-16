@@ -7,7 +7,7 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
 {
     public partial class CopyContextProperty
     {
-        public string Name { get { return "CopyContextProperty."; } }
+        public string Name { get { return "CopyContextProperty"; } }
         public string Version { get { return "1.0"; } }
         public string Description { get { return "Copies one context property from another context property."; } }
         
