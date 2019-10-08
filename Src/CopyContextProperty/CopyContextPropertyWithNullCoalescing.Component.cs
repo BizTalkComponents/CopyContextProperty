@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections;
+using System.Linq;
+using BizTalkComponents.Utils;
+using Microsoft.BizTalk.Component.Interop;
+using System.ComponentModel;
+
+namespace BizTalkComponents.PipelineComponents.CopyContextProperty
+{
+    public partial class CopyContextPropertyWithNullCoalescing
+    {
+        public string Name { get { return "Copy Context Property With Null-Coalescing"; } }
+        public string Version { get { return "1.0"; } }
+        public string Description { get { return "Copies one context property applying null coalescing operator on two context properties."; } }
+
+        [Description("Set to True to disable the component.")]
+        public bool Disabled { get; set; }
+
+        public void GetClassID(out Guid classID)
+        {
+            classID = new Guid("4C3DDF79-7FA6-4A2D-B750-8982F549FBE5");
+        }
+
+        public void InitNew()
+        {
+            
+        }
+
+        public IEnumerator Validate(object projectSystem)
+        {
+            return ValidationHelper.Validate(this, false).ToArray().GetEnumerator();
+        }
+
+        public bool Validate(out string errorMessage)
+        {
+            var errors = ValidationHelper.Validate(this, true).ToArray();
+
+            if (errors.Any())
+            {
+                errorMessage = string.Join(",", errors);
+
+                return false;
+            }
+
+            errorMessage = string.Empty;
+
+            return true;
+        }
+
+        public IntPtr Icon { get { return IntPtr.Zero; } }
+
+
+        public void Load(IPropertyBag propertyBag, int errorLog)
+        {
+            var props = this.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+            foreach (var prop in props)
+            {
+                if (prop.CanRead & prop.CanWrite)
+                {
+                    object value = PropertyBagHelper.ReadPropertyBag(propertyBag, prop.Name) ?? prop.GetValue(this, null);
+                    prop.SetValue(this, value, null);
+                }
+            }
+        }
+
+        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
+        {
+            var props = this.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+            foreach (var prop in props)
+            {
+                if (prop.CanRead & prop.CanWrite)
+                {
+                    PropertyBagHelper.WritePropertyBag(propertyBag, prop.Name, prop.GetValue(this,null));
+                }
+            }
+        }
+
+    }
+}
