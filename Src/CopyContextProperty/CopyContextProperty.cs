@@ -14,9 +14,6 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
     public partial class CopyContextProperty : IComponent, IBaseComponent,
                                         IPersistPropertyBag, IComponentUI
     {
-        private const string SourcePropertyName = "SourceProperty";
-        private const string DestinationPropertyName = "DestinationPropertyName";
-
         [RequiredRuntime]
         [DisplayName("Source Property Path")]
         [Description("The property path of the property to copy from.")]
@@ -29,7 +26,11 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
         [Description("The property path of the property to copy to.")]
         [RegularExpression(@"^.*#.*$",
         ErrorMessage = "A property path should be formatted as namespace#property.")]
-        public string DestinationProperty { get; set; }
+        public string DestinationPropertyName { get; set; }
+
+        [DisplayName("No Promotion")]
+        [Description("If it is set to true, the component will not promote the destination property")]
+        public bool NoPromotion { get; set; }
 
         public IBaseMessage Execute(IPipelineContext pContext, IBaseMessage pInMsg)
         {
@@ -41,25 +42,24 @@ namespace BizTalkComponents.PipelineComponents.CopyContextProperty
             }
 
             var sourceContextProperty = new ContextProperty(SourceProperty);
-            var destinationContextProperty = new ContextProperty(DestinationProperty);
+            var destinationContextProperty = new ContextProperty(DestinationPropertyName);
 
-            pInMsg.Context.Copy(sourceContextProperty, destinationContextProperty);
+            object sourceValue;
 
+            if (!pInMsg.Context.TryRead(sourceContextProperty, out sourceValue))
+            {
+                throw new InvalidOperationException("Could not find the specified source property in BizTalk context.");
+            }
+
+            if (NoPromotion)
+            {
+                pInMsg.Context.Write(destinationContextProperty, sourceValue);
+            }
+            else
+            {
+                pInMsg.Context.Promote(destinationContextProperty, sourceValue);
+            }
             return pInMsg;
         }
-
-
-        public void Load(IPropertyBag propertyBag, int errorLog)
-        {
-            SourceProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, SourcePropertyName), string.Empty);
-            DestinationProperty = PropertyBagHelper.ToStringOrDefault(PropertyBagHelper.ReadPropertyBag(propertyBag, DestinationPropertyName), string.Empty);
-        }
-
-        public void Save(IPropertyBag propertyBag, bool clearDirty, bool saveAllProperties)
-        {
-            PropertyBagHelper.WritePropertyBag(propertyBag, SourcePropertyName, SourceProperty);
-            PropertyBagHelper.WritePropertyBag(propertyBag, DestinationPropertyName, DestinationProperty);
-        }
-
     }
 }

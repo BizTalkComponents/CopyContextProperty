@@ -14,7 +14,7 @@ namespace BizTalkComponents.CopyContextProperty.Tests.UnitTests
             var component = new PipelineComponents.CopyContextProperty.CopyContextProperty
             {
                 SourceProperty = "http://tempuri.org#Source",
-                DestinationProperty = "http://tempuri.org#Destination"
+                DestinationPropertyName = "http://tempuri.org#Destination"
             };
 
             pipeline.AddComponent(component,PipelineStage.Decode);
