@@ -2,7 +2,7 @@
 	<Import Project="$(MSBuildExtensionsPath1)\BtsMsiTask\BtsMsiTask.targets" />
 	<Import Project="$(MSBuildExtensionsPath1)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
 	<PropertyGroup>
-		<DestinationPath>.</DestinationPath>
+		<DestinationPath>$(build.artifactstagingdirectory)</DestinationPath>
 		<ApplicationName>BizTalkComponents.PipelineComponents.CopyContextProperty</ApplicationName>
 	</PropertyGroup>
 	<ItemGroup>
